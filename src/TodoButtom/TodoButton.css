@@ -1,0 +1,31 @@
+
+
+.TodoButton{
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: whitesmoke;
+    height: 45px;
+    margin-inline: auto;
+    border: 0;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+.TodoButton .material-icons-round{
+    margin-right: 10px;
+}
+.delete{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    color: whitesmoke;
+    border: none;
+    font-size: 0.9rem;
+    width: auto;
+    height: 45px;
+    margin-right: 5px;
+}

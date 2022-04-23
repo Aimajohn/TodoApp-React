@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  background-image: linear-gradient(to bottom, #051937, #001e57, #002076, #001d94, #0e0eaf);
+  color: whitesmoke;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  height: 100vh;
+}
+

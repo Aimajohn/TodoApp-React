@@ -1,0 +1,42 @@
+.TodoItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+.TodoItem > .material-icons-outlined{
+    margin-inline: 10px;
+    font-weight: 800;
+    color: aquamarine;
+}
+
+.checked{
+    cursor: pointer;
+    background-color: black;
+    font-size: 0.9rem;
+    color: aliceblue;
+    min-width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    color: aliceblue;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+    border: none;
+}
+.checkedDone{
+    background-color: rgb(68, 216, 125);
+    color: whitesmoke;
+
+}
+.itemDone{
+    text-decoration: line-through;
+    color: gray;
+    background-color: rgba(0, 0, 0, 0.445);
+}
+
+.delete{
+    justify-self:right;
+    align-content: flex-end;
+    cursor: pointer;
+}

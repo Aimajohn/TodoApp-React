@@ -1,0 +1,21 @@
+#TodoSearch{
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.247);
+    color: whitesmoke;
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.219);
+    padding-left: 15px;
+    padding-block: 3px;
+    font-size: 1rem;
+    margin-inline: auto;
+}
+#TodoSearch::placeholder{
+    color: rgba(245, 245, 245, 0.418);
+}
+#TodoSearch:focus{
+    border: 1px solid rgba(255, 255, 255, 0.582);
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.459);
+}
