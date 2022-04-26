@@ -1,59 +1,59 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {AppUI} from './AppUI'
 
-// const toDos = [
-//   {text: 'Cortar papas', completed:false},
-//   {text: 'Ver videos en youtube ', completed:true},
-//   {text: 'Estudiar en platzi', completed:false},
-// ]
+const toDos = [
+  {text: 'Cortar papas', completed:false},
+  {text: 'Ver videos en youtube ', completed:true},
+  {text: 'Estudiar en platzi', completed:false},
+]
 function useLocalStorage(itemName, itemDef){
-  // const [error, setError] = React.useState(false)
   const [Item, setItem] = React.useState(itemDef)
-  // const [loading, setLoading] = React.useState(true)
-  console.log('antes de useEffect')
+  const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState(false)
+
   React.useEffect(()=>{
-    console.log('React useEffect in full work')
-    // setTimeout(() => {
-      let parsedItem;
-      const onSaved = localStorage.getItem(itemName)
-
-      if(!onSaved){
-        localStorage.setItem(itemName, JSON.stringify(itemDef))
-        parsedItem = itemDef
-      }else{
-        parsedItem = JSON.parse(onSaved)
+    setTimeout(() => {
+      try{
+        let parsedItem;
+        const onSaved = localStorage.getItem(itemName)
+        if(!onSaved){
+          localStorage.setItem(itemName, JSON.stringify(itemDef))
+          parsedItem = itemDef
+        }else{
+          parsedItem = JSON.parse(onSaved)
+        }
+        setItem(parsedItem)
+        setLoading(false)
+      }catch(error){
+        setError(error)
       }
-      console.log(parsedItem)
-      setItem(parsedItem)
-      // setLoading(false)
-        // try{
-        // }
-        // catch(error){
-        //   setError(error)
-        // }
-      // }, 1000);
-    },[Item])
+    }, 1000);
 
-    console.log('despues de useEffect')
+  })
 
-  
   function onSavedTotal(newTotal){
-    const stringifyNewTotal = JSON.stringify(newTotal)
-    localStorage.setItem(itemName, stringifyNewTotal)
-    setItem(newTotal)
+    try{
+      const stringifyNewTotal = JSON.stringify(newTotal)
+      localStorage.setItem(itemName, stringifyNewTotal)
+      setItem(newTotal)
+    }catch(error){
+      setError(error)
+    }
   }
-  return [
-    Item,
-    onSavedTotal]
-  
+
+  return {Item,onSavedTotal,loading}
 }
 
+
 function App(props) {
-  
-  const [totalTodos,setTotalTodos] = useLocalStorage('TODOS_V1','')
+  const {
+    Item:totalTodos,
+    onSavedTotal:setTotalTodos, 
+    loading
+  } = useLocalStorage('TODOS_V1',[])
+
   const [searchValue, setSearchValue] = React.useState('')
-  console.log(totalTodos)
   const completedTodos = totalTodos.filter((todo)=>!!todo.completed).length
   const allTodos = totalTodos.length
 
@@ -73,17 +73,20 @@ function App(props) {
     const newTotal = [...totalTodos]
     newTotal[i].completed = !newTotal[i].completed
     setTotalTodos(newTotal)
-}
-function onDelete(text){
+  }
+  function onDelete(text){
     const i = totalTodos.findIndex((todo)=>todo.text === text)
-    const newTotal = [...totalTodos]
+    let newTotal = [...totalTodos]
     newTotal.splice(i,1)
     setTotalTodos(newTotal)
-}
+
+    
+  }
   return (
     <AppUI
+    loading={loading}
     completedTodos={completedTodos}
-    totalTodos={allTodos}
+    allTodos={allTodos}
     setSearchValue={setSearchValue}
     searchValue={searchValue}
     onDelete={onDelete} 

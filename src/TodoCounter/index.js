@@ -8,7 +8,7 @@ function TodoCounter(props){
         <p>GETTING</p>
         <p><span>SH</span>IT</p>
         <p>DONE.</p>
-        <p>{props.completedTodos} de {props.totalTodos}</p>
+        <p>{props.completedTodos} de {props.allTodos}</p>
         </h2>
         {props.children}
       </div>

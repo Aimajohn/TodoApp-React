@@ -4,8 +4,11 @@ import {TodoButtom} from '../TodoButtom'
 import {TodoItem} from '../TodoItem'
 import {TodoList} from '../TodoList'
 import {TodoSearch} from '../TodoSearch'
-function AppUI({completedTodos,
-    totalTodos,
+function AppUI({
+    loading,
+    error,
+    completedTodos,
+    allTodos,
     setSearchValue,
     searchValue,
     onDelete,
@@ -15,7 +18,7 @@ function AppUI({completedTodos,
         <main className='App'>
             <TodoCounter
                 completedTodos={completedTodos}
-                totalTodos={totalTodos}
+                allTodos={allTodos}
             >
                 <img src='/HD-wallpaper-fire-minimalist-blue-minimal-flat.png' className='headerImg' alt="" />
             </TodoCounter>
@@ -24,9 +27,9 @@ function AppUI({completedTodos,
                 searchValue={searchValue}
             />
             <TodoList>
-                {/* {loading && <p>Estamos cargando, espera un momento</p>}
-                {error && <p>Desesperate hubo un error</p>}
-                {(!loading && !filtered.length) && <p>Crea tu primer toDo!!!</p>} */}
+                {loading && <p>Esta cargando el contenido</p>}
+                {error && <p>Lolamento hubo un error, recarga</p>}
+                {(!loading && !allTodos) && <p>No tienes ningun ToDo añade uno!!!</p>}
                 <TodoButtom/>
                 {filtered.map((toDo)=> 
                 <TodoItem 
@@ -34,7 +37,8 @@ function AppUI({completedTodos,
                 text = {toDo.text} 
                 completed={toDo.completed} 
                 onDelete={()=>onDelete(toDo.text)} 
-                onDone={()=>onDone(toDo.text)}/>
+                onDone={()=>onDone(toDo.text)}
+                />
                 )}
             </TodoList>
         </main>
