@@ -7,9 +7,7 @@ const rootElement = document.getElementById('root')
 const root = ReactDOM.createRoot(rootElement)
 root.render(
   <React.StrictMode>
-    <App saludo="mi mami" >
-      Hello its me
-      </App>
+    <App/>
   </React.StrictMode>,
 );
 
