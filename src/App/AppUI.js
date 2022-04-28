@@ -5,6 +5,7 @@ import {TodoItem} from '../TodoItem'
 import {TodoList} from '../TodoList'
 import {TodoSearch} from '../TodoSearch'
 import {TodoContext} from '../TodoContext'
+// import {Modal} from '../Modal'
 function AppUI(){
 
     const {loading,error,filtered,onDelete,onDone} = React.useContext(TodoContext)
@@ -29,8 +30,8 @@ function AppUI(){
                     onDone={()=>onDone(toDo.text)}
                     />
                     )}
+                {console.log('terminado')}
                 </TodoList>
-            
         </main>
     )
 }
