@@ -15,7 +15,7 @@ function AppUI(){
     return (
         <main className='App'>
             <TodoCounter>
-                <img src='/HD-wallpaper-fire-minimalist-blue-minimal-flat.png' className='headerImg' alt="" />
+                <img src='%PUBLIC_URL%/logopro.png' className='headerImg' alt="" />
             </TodoCounter>
             <TodoSearch/>
                 <TodoList>
