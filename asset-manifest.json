@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Aimajoke/TodoApp-React/static/css/main.f20f32a6.css",
-    "main.js": "/Aimajoke/TodoApp-React/static/js/main.bc1762df.js",
-    "index.html": "/Aimajoke/TodoApp-React/index.html",
-    "main.f20f32a6.css.map": "/Aimajoke/TodoApp-React/static/css/main.f20f32a6.css.map",
-    "main.bc1762df.js.map": "/Aimajoke/TodoApp-React/static/js/main.bc1762df.js.map"
+    "main.css": "/TodoApp-React/static/css/main.f20f32a6.css",
+    "main.js": "/TodoApp-React/static/js/main.bc1762df.js",
+    "index.html": "/TodoApp-React/index.html",
+    "main.f20f32a6.css.map": "/TodoApp-React/static/css/main.f20f32a6.css.map",
+    "main.bc1762df.js.map": "/TodoApp-React/static/js/main.bc1762df.js.map"
   },
   "entrypoints": [
     "static/css/main.f20f32a6.css",
