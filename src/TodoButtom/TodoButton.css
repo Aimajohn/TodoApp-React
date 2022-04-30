@@ -1,25 +1,27 @@
 
 
 .TodoButton{
-    position: relative;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: black;
-    color: whitesmoke;
+    position: absolute;
+    top: 85%;
+    right: 20px;
+    width: 45px;
     height: 45px;
-    margin-inline: auto;
+    padding: 5px;
+    border-radius: 50%;
     border: 0;
-    border-radius: 10px;
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
+    z-index: 1;
+    
+}
+.TodoButton .material-icons-round:hover{
+    transform: rotate(222deg);
 }
 .TodoButton .material-icons-round{
-    margin-right: 10px;
+    transform: rotate(0);
+    transition: .3s ease;
+    font-weight: 800;
+    font-size: 2rem;
 }
 .delete{
-    position: absolute;
     right: 0;
     background-color: transparent;
     color: whitesmoke;

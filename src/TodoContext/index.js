@@ -14,7 +14,7 @@ function TodoProvider(props){
         loading,
         error
       } = useLocalStorage('TODOS_V1',[])
-    
+      const [modal, setModal] = React.useState(false)
       const [searchValue, setSearchValue] = React.useState('')
       const completedTodos = totalTodos.filter((todo)=>!!todo.completed).length
     
@@ -35,16 +35,24 @@ function TodoProvider(props){
         newTotal[i].completed = !newTotal[i].completed
         setTotalTodos(newTotal)
       }
+      function onAdd(text){
+        let newTotal = [...totalTodos]
+        newTotal.push({
+          completed: false,
+          text,
+        })
+        setTotalTodos(newTotal)
+      }
       function onDelete(text){
         const i = totalTodos.findIndex((todo)=>todo.text === text)
         let newTotal = [...totalTodos]
         newTotal.splice(i,1)
         setTotalTodos(newTotal)
-    
-        
       }
+      
     return(
         <TodoContext.Provider value={{
+            onAdd,
             error,
             loading,
             completedTodos,
@@ -53,6 +61,8 @@ function TodoProvider(props){
             onDelete,
             onDone,
             filtered,
+            modal,
+            setModal
         }}>
             {props.children}
         </TodoContext.Provider>

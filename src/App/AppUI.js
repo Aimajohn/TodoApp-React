@@ -4,11 +4,13 @@ import {TodoButtom} from '../TodoButtom'
 import {TodoItem} from '../TodoItem'
 import {TodoList} from '../TodoList'
 import {TodoSearch} from '../TodoSearch'
+import {TodoForm} from '../TodoForm'
 import {TodoContext} from '../TodoContext'
-// import {Modal} from '../Modal'
+import {Modal} from '../Modal'
+
 function AppUI(){
 
-    const {loading,error,filtered,onDelete,onDone} = React.useContext(TodoContext)
+    const {loading,error,filtered,onDelete,onDone, modal, setModal} = React.useContext(TodoContext)
     
     return (
         <main className='App'>
@@ -20,7 +22,6 @@ function AppUI(){
                     {loading && <p>Esta cargando el contenido</p>}
                     {error && <p>Lolamento hubo un error, recarga</p>}
                     {(!loading && !filtered.length) && <p>No tienes ningun ToDo añade uno!!!</p>}
-                    <TodoButtom/>
                     {filtered.map((toDo)=> 
                     <TodoItem 
                     key={toDo.text} 
@@ -30,8 +31,14 @@ function AppUI(){
                     onDone={()=>onDone(toDo.text)}
                     />
                     )}
-                {console.log('terminado')}
+                    <TodoButtom/>
                 </TodoList>
+                {(!!modal && 
+                    <Modal>
+                        <TodoForm/>
+                    </Modal>
+                )}
+                
         </main>
     )
 }

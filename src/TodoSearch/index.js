@@ -8,7 +8,7 @@ function TodoSearch(){
       setSearchValue(eme)
     }
     return (
-      <input placeholder='No encuentras algo...' type="text" id="TodoSearch" onChange={searcher}/>
+      <input className="todoInput" placeholder='No encuentras algo...' type="text" id="TodoSearch" onChange={searcher}/>
     )
 }
 

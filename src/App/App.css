@@ -5,7 +5,8 @@
   padding: 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
-  height: 100vh;
   max-width: 500px;
+  min-height: 91vh;
+  position: relative;
 }
 

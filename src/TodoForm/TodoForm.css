@@ -1,0 +1,57 @@
+form{
+    width: 85%;
+    background-image: linear-gradient(to bottom, #110b53, #100b59, #0f0c5f, #0e0c65, #0c0c6b);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    border-radius: 20px;
+    padding: 20px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.newTodoPopTitle{
+    padding-bottom: 15px;
+    font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+.textareaTodo{
+    padding-block: 10px;
+    display: flex;
+    height: auto;
+}
+
+.newTodoButton{
+    margin-inline: 40px;
+    width: 125px;
+    padding-block: 11px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.514);
+    transform: scale(1);
+    transition: all 50ms;
+}
+.newTodoButton:active{
+    transform: scale(0.9);
+}
+
+
+.newTodoCancel{
+    background-color: rgba(3, 2, 49, 0.788);
+    color: rgb(255, 255, 255);
+}
+.newTodoSubmit{
+    background-color: rgba(80, 206, 129, 0.856);
+    color: rgb(255, 255, 255);
+}
+

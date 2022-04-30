@@ -3,6 +3,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 0;
+    position: relative;
+}
+.TodoItemButton{
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: whitesmoke;
+    height: 45px;
+    margin-inline: auto;
+    border: 0;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
 }
 .TodoItem > .material-icons-outlined{
     margin-inline: 10px;
@@ -36,6 +52,7 @@
 }
 
 .delete{
+    position: absolute;
     justify-self:right;
     align-content: flex-end;
     cursor: pointer;
