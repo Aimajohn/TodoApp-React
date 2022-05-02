@@ -1,9 +1,7 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './TodoForm.css'
 import '../TodoSearch/TodoSearch.css'
-function TodoForm(){
-    const {onAdd, setModal} = React.useContext(TodoContext)
+function TodoForm({onAdd, setModal}){
     const [newTodoText, setnewTodoText] = React.useState('')
 
     function onCancel(){

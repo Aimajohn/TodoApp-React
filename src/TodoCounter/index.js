@@ -1,9 +1,7 @@
 import React from "react";
 import './TodoCounter.css'
 import {FaGrinWink} from 'react-icons/fa'
-import {TodoContext} from '../TodoContext'
-function TodoCounter(props){
-  const {completedTodos, filtered} = React.useContext(TodoContext)
+function TodoCounter({children, completedTodos, filtered}){
     return(
       <div className="TodoCounter">
       <h2>
@@ -12,7 +10,7 @@ function TodoCounter(props){
         <p>DONE <FaGrinWink/></p>
         <p>{completedTodos} de {filtered.length}</p>
         </h2>
-        {props.children}
+        {children}
       </div>
 
     )

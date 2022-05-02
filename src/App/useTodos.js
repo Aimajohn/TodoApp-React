@@ -5,9 +5,8 @@ const toDos = [
     {text: 'Ver videos en youtube ', completed:true},
     {text: 'Estudiar en platzi', completed:false},
   ]
-const TodoContext = React.createContext()
 
-function TodoProvider(props){
+function useTodos(){
     const {
         Item:totalTodos,
         onSavedTotal:setTotalTodos, 
@@ -50,8 +49,7 @@ function TodoProvider(props){
         setTotalTodos(newTotal)
       }
       
-    return(
-        <TodoContext.Provider value={{
+    return{
             onAdd,
             error,
             loading,
@@ -63,10 +61,7 @@ function TodoProvider(props){
             filtered,
             modal,
             setModal
-        }}>
-            {props.children}
-        </TodoContext.Provider>
-    )
+        }
 }
 
-export {TodoProvider, TodoContext}
+export {useTodos}
