@@ -11,7 +11,8 @@ function useTodos(){
         Item:totalTodos,
         onSavedTotal:setTotalTodos, 
         loading,
-        error
+        error,
+        needSyncItem: setSyncTodo,
       } = useLocalStorage('TODOS_V1',[])
       const [modal, setModal] = React.useState(false)
       const [searchValue, setSearchValue] = React.useState('')
@@ -60,7 +61,9 @@ function useTodos(){
             onDone,
             filtered,
             modal,
-            setModal
+            setModal,
+            totalTodos,
+            setSyncTodo,
         }
 }
 

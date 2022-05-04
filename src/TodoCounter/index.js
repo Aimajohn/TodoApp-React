@@ -1,9 +1,9 @@
 import React from "react";
 import './TodoCounter.css'
 import {FaGrinWink} from 'react-icons/fa'
-function TodoCounter({children, completedTodos, filtered}){
+function TodoCounter({children, completedTodos, filtered, loading}){
     return(
-      <div className="TodoCounter">
+      <div className={`TodoCounter ${!!loading && `TodoConter--loading`}`}>
       <h2>
         <p>GETTING</p>
         <p><span>SH</span>IT</p>

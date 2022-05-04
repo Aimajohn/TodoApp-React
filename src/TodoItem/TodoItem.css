@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding: 0;
     position: relative;
+    margin-block: 15px;
 }
 .TodoItemButton{
     position: relative;

@@ -22,3 +22,6 @@ h2>p{
 h2>p>span{
     color: rgb(118, 117, 179);
 }
+.TodoConter--loading{
+    opacity: 25%;
+}

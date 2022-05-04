@@ -10,6 +10,7 @@ import {TodoForm} from '../TodoForm'
 import { TodoHeader } from "../TodoHeader";
 import {Modal} from '../Modal'
 import imagenlogo from '../logopro.png'
+import { ChangeStorageListener } from '../ChangeAlert';
 
 function App(props) {
   const  {
@@ -23,14 +24,19 @@ function App(props) {
     onDone,
     filtered,
     modal,
-    setModal
+    setModal,
+    totalTodos,
+    setSyncTodo,
   }= useTodos()
 
-
+  console.log(setSyncTodo)
   return (
     <main className='App'>
-            <TodoHeader>
-                <TodoCounter completedTodos={completedTodos} filtered={filtered}>
+            <TodoHeader loading={loading}>
+                <TodoCounter 
+                    completedTodos={completedTodos} 
+                    filtered={filtered}
+                >
                     <img src={imagenlogo} className='headerImg' alt="" />
                 </TodoCounter>
                 <TodoSearch
@@ -38,7 +44,42 @@ function App(props) {
                     setSearchValue = {setSearchValue}
                 />
             </TodoHeader>
-                <TodoList>
+            <TodoList
+                searchValue={searchValue}
+                totalTodos={totalTodos}
+                onError={error}
+                onLoading={loading}
+                filtered={filtered}
+                TodoError={()=><p>Lolamento hubo un error, recarga</p>}
+                TodoLoading={()=><p>Esta cargando el contenido</p>}
+                TodoEmpty={()=><p>No tienes ningun ToDo añade uno!!!</p>}
+                TodoEmptySearchResults={(searchText)=><p>Ningun resultado coincide con "{searchText}"</p>}
+                // TodoRender={(toDo)=>
+                //     <TodoItem 
+                //     key={toDo.text} 
+                //     text = {toDo.text} 
+                //     completed={toDo.completed} 
+                //     onDelete={()=>onDelete(toDo.text)} 
+                //     onDone={()=>onDone(toDo.text)}
+                //     />
+                // }  
+            >
+                {(toDo)=>
+                    <TodoItem 
+                    key={toDo.text} 
+                    text = {toDo.text} 
+                    completed={toDo.completed} 
+                    onDelete={()=>onDelete(toDo.text)} 
+                    onDone={()=>onDone(toDo.text)}
+                    />
+                }  
+            </TodoList>
+            <TodoButtom
+                setModal ={setModal} 
+                modal ={modal}
+            />
+
+                {/* <TodoList>
                     {loading && <p>Esta cargando el contenido</p>}
                     {error && <p>Lolamento hubo un error, recarga</p>}
                     {(!loading && !filtered.length) && <p>No tienes ningun ToDo añade uno!!!</p>}
@@ -55,7 +96,7 @@ function App(props) {
                     setModal ={setModal} 
                     modal ={modal}
                     />
-                </TodoList>
+                </TodoList> */}
                 {(!!modal && 
                     <Modal>
                         <TodoForm
@@ -64,7 +105,9 @@ function App(props) {
                         />
                     </Modal>
                 )}
-                
+        <ChangeStorageListener
+            setSyncTodo={setSyncTodo}
+        />
         </main>
   );
 }

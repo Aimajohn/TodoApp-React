@@ -1,0 +1,35 @@
+.changeAlertContainer{
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.678);
+    z-index: 1;
+}
+.changeAlert{
+    margin-top: 65%;
+    background-color: rgba(3, 3, 78, 0.897);
+    display: flex;
+    padding-block: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 0 10px 0px black;
+}
+
+.refreshButton{
+    background-color: transparent;
+    color: rgb(212, 212, 212);
+    font-family: 'Montserrat', sans-serif;
+    border: 0px;
+    font-size: .92rem;
+    background-color: #071486;
+    font-weight: 600;
+    border: 2px solid rgb(196, 196, 196);
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline;
+    margin-top: 10px;
+}
