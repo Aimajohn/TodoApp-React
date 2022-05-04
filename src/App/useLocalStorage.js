@@ -22,7 +22,7 @@ function useLocalStorage(itemName, itemDef){
         }catch(error){
           setError(error)
         }
-      }, 2000);
+      }, 500);
   
     }, [syncItem])
   

@@ -1,8 +1,8 @@
 import React from "react";
-import {withChangeListener} from './withChangeListener'
+import {useChangeListener} from './useChangeListener'
 import './ChangeAlert.css'
-function TodoChange({storageChange, refresh}){
-    
+function TodoChange({setSyncTodo}){
+    const {storageChange, refresh} = useChangeListener(setSyncTodo)
     if(storageChange){
         return(
             <div className="changeAlertContainer">
@@ -25,5 +25,4 @@ function TodoChange({storageChange, refresh}){
     }
 }
 
-const ChangeStorageListener =  withChangeListener(TodoChange)
-export {ChangeStorageListener}
+export {TodoChange}

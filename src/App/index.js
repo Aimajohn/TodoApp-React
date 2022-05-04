@@ -10,7 +10,7 @@ import {TodoForm} from '../TodoForm'
 import { TodoHeader } from "../TodoHeader";
 import {Modal} from '../Modal'
 import imagenlogo from '../logopro.png'
-import { ChangeStorageListener } from '../ChangeAlert';
+import { TodoChange } from '../ChangeAlert';
 
 function App(props) {
   const  {
@@ -29,7 +29,6 @@ function App(props) {
     setSyncTodo,
   }= useTodos()
 
-  console.log(setSyncTodo)
   return (
     <main className='App'>
             <TodoHeader loading={loading}>
@@ -105,7 +104,7 @@ function App(props) {
                         />
                     </Modal>
                 )}
-        <ChangeStorageListener
+        <TodoChange
             setSyncTodo={setSyncTodo}
         />
         </main>
