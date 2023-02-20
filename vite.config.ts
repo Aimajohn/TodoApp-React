@@ -9,6 +9,7 @@ export default defineConfig({
   // build: {
   //   outDir: 'build',
   // },
+  base: '/TodoApp-React/',
   plugins: [
     react(),
     svgrPlugin({
