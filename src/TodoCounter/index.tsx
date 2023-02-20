@@ -1,7 +1,7 @@
-import React from "react";
+import {ReactNode} from "react";
 import './TodoCounter.css'
 import {FaGrinWink} from 'react-icons/fa'
-function TodoCounter({children, completedTodos, filtered, loading}){
+function TodoCounter({children, completedTodos, filtered, loading}:CounterProps){
     return(
       <div className={`TodoCounter ${!!loading && `TodoConter--loading`}`}>
       <h2>
@@ -14,6 +14,18 @@ function TodoCounter({children, completedTodos, filtered, loading}){
       </div>
 
     )
+}
+
+type CounterProps = {
+  children: ReactNode;
+  completedTodos: number;
+  filtered: Todo[];
+  loading: boolean;
+
+}
+type Todo = {
+  completed: boolean;
+  text: string;
 }
 
 export {TodoCounter}

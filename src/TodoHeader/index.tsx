@@ -1,13 +1,19 @@
-import React from "react";
+import { ReactNode} from "react";
 
-function TodoHeader({children, loading}){
-    return(
-        <header>
-            {React.Children.toArray(children)
-                .map(child=>React.cloneElement(child, {loading}))
-            }
-        </header>
-    )
+function TodoHeader({ children, loading }: HeaderProps) {
+  return (
+    <header>
+        {children}
+      {/* {React.Children.toArray(children).map((child) =>{
+        // const item = child  as ReactElement<PropsWithChildren<ReactNode>>
+        return React.cloneElement(child, { loading  })
+    })} */}
+    </header>
+  );
 }
 
-export {TodoHeader}
+type HeaderProps = {
+  children: ReactNode;
+  loading: boolean;
+};
+export { TodoHeader };

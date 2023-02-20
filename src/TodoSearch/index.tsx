@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoSearch.css'
-function TodoSearch({searchValue, setSearchValue, loading}){
-    function searcher(event){
+function TodoSearch({searchValue, setSearchValue, loading}:SearchProps){
+    function searcher(event: React.ChangeEvent<HTMLInputElement>){
       const eme = event.target.value
       setSearchValue(eme)
     }
@@ -10,6 +10,12 @@ function TodoSearch({searchValue, setSearchValue, loading}){
         disabled={!!loading}
       placeholder='No encuentras algo...' type="text" id="TodoSearch" onChange={searcher}/>
     )
+}
+
+type SearchProps = {
+  searchValue: string;
+  setSearchValue(value:string):void;
+  loading: boolean;
 }
 
 export {TodoSearch}

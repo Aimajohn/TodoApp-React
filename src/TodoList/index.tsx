@@ -1,34 +1,48 @@
-import React from "react";
-import "./TodoList.css"
-const TodoList: React.FC<ListProps> = (props)=>{
-    console.log(props)
-    return(
-        <section>
-        {props.onError && props.Todoerror() }
-        {props.onLoading && props.TodoLoading() }
-        {(!props.onLoading && !props.totalTodos.length) && props.TodoEmpty()}
-        {(!!props.totalTodos.length && !props.onLoading && !props.filtered.length ) && props.TodoEmptySearchResults(props.searchValue)}
-        <ul className={`TodoList`}>
-            {(!props.onLoading && !props.onError) && props.filtered.map(props.TodoRender || props.children)}
-        </ul>
-        </section>
-    )
-}
-interface ListProps{
-    onError: boolean;
-    onLoading: boolean;
-    searchValue: string;
-    totalTodos: Todo[];
-    filtered: Todo[];
-    TodoEmpty: any;
-    TodoEmptySearchResults: any;
-    Todoerror: any;
-    TodoLoading: any;
-    TodoRender?: any;
-
+import React, { type ReactNode } from "react";
+import "./TodoList.css";
+const TodoList = ({
+  TodoEmpty,
+  TodoEmptySearchResults,
+  TodoLoading,
+  Todoerror,
+  children,
+  filtered,
+  onError,
+  onLoading,
+  searchValue,
+  totalTodos,
+  TodoRender,
+}: ListProps) => {
+  return (
+    <section>
+      {onError && Todoerror()}
+      {onLoading && TodoLoading()}
+      {!onLoading && !totalTodos.length && TodoEmpty()}
+      {!!totalTodos.length &&
+        !onLoading &&
+        !filtered.length &&
+        TodoEmptySearchResults(searchValue)}
+      <ul className={`TodoList`}>
+        {!onLoading && !onError && filtered.map(TodoRender || children)}
+      </ul>
+    </section>
+  );
+};
+interface ListProps {
+  onError: boolean;
+  onLoading: boolean;
+  searchValue: string;
+  totalTodos: Todo[];
+  filtered: Todo[];
+  TodoEmpty(): ReactNode;
+  TodoEmptySearchResults(value: string): ReactNode;
+  Todoerror(): ReactNode;
+  TodoLoading(): ReactNode;
+  TodoRender?: any;
+  children: ReactNode;
 }
 type Todo = {
-    completed: boolean;
-    text: string;
-}
-export {TodoList}
+  completed: boolean;
+  text: string;
+};
+export { TodoList };
