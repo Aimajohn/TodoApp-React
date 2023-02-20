@@ -1,6 +1,6 @@
 import React from "react";
 
-function useChangeListener(setSyncTodo){
+function useChangeListener(setSyncTodo: ()=>void){
 
     const [storageChange, setStorageChange] = React.useState(false)
 
@@ -11,7 +11,7 @@ function useChangeListener(setSyncTodo){
         }
     })
     function synctTodos(){
-        setStorageChange(setStorageChange(true))
+        setStorageChange(true)
         setSyncTodo()
     }
     return {storageChange,
