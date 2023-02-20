@@ -12,7 +12,7 @@ import {Modal} from '../Modal'
 import imagenlogo from '../logopro.png'
 import { TodoChange } from '../ChangeAlert';
 
-function App(props) {
+export function App(props) {
   const  {
     onAdd,
     error,
@@ -110,4 +110,4 @@ function App(props) {
         </main>
   );
 }
-export default App;
+export default App

@@ -7,7 +7,7 @@ import App from './App/index.js';
 
 
 const rootElement = document.getElementById('root')
-const root = ReactDOM.createRoot(rootElement)
+const root = ReactDOM.createRoot(rootElement as HTMLElement)
 root.render(
   <React.StrictMode>
     <App/>

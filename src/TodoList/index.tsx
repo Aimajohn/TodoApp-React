@@ -1,6 +1,7 @@
 import React from "react";
 import "./TodoList.css"
-function TodoList (props){
+const TodoList: React.FC<ListProps> = (props)=>{
+    console.log(props)
     return(
         <section>
         {props.onError && props.Todoerror() }
@@ -12,5 +13,22 @@ function TodoList (props){
         </ul>
         </section>
     )
+}
+interface ListProps{
+    onError: boolean;
+    onLoading: boolean;
+    searchValue: string;
+    totalTodos: Todo[];
+    filtered: Todo[];
+    TodoEmpty: any;
+    TodoEmptySearchResults: any;
+    Todoerror: any;
+    TodoLoading: any;
+    TodoRender?: any;
+
+}
+type Todo = {
+    completed: boolean;
+    text: string;
 }
 export {TodoList}
